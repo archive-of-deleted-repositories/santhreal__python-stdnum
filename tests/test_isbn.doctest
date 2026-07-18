@@ -105,6 +105,18 @@ Regrouping tests.
 ('', '', '', '541317012152', '2')
 
 
+Empty input must raise InvalidLength from split/format (not IndexError).
+
+>>> isbn.format('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
+>>> isbn.split('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
+
+
 Explicit tests for invalid characters. The first number is 978-90245᭓8270,
 the second is 978-9024538²70.
 

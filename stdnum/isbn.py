@@ -179,6 +179,8 @@ def split(number: str, convert: bool = False) -> tuple[str, str, str, str, str]:
     True the number is converted to ISBN-13 format first."""
     # clean up number
     number = compact(number, convert)
+    if not number:
+        raise InvalidLength()
     # get Bookland prefix if any
     delprefix = False
     if len(number) == 10:
