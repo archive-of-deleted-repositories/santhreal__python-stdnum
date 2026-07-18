@@ -119,14 +119,16 @@ def split(number: str) -> tuple[str, str, str, str, str]:
     """Split the specified ISMN into a bookland prefix (979), an ISMN
     prefix (0), a publisher element (3 to 7 digits), an item element (2 to
     6 digits) and a check digit."""
-    # clean up number
-    number = to_ismn13(compact(number))
+    # clean up number (to_ismn13 is silent on short/invalid input)
+    number = compact(to_ismn13(compact(number)))
+    if len(number) != 13 or not number.startswith('9790'):
+        raise InvalidLength()
     # find the correct range and split the number
     for length, low, high in _ranges:  # pragma: no branch (all ranges covered)
         if low <= number[4:4 + length] <= high:
             return (number[:3], number[3], number[4:4 + length],
                     number[4 + length:-1], number[-1])
-    raise AssertionError('unreachable')  # pragma: no cover
+    raise InvalidComponent()
 
 
 def format(number: str, separator: str = '-') -> str:

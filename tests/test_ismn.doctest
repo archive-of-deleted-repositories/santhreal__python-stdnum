@@ -86,6 +86,23 @@ Regrouping tests.
 '979-0-3217-6545-0'
 
 
+Short or empty values must raise InvalidLength from split/format (not
+AssertionError), matching validate().
+
+>>> ismn.format('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
+>>> ismn.format('M')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
+>>> ismn.split('12')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
+
+
 While an EAN can also be less than 13 digits and ISMN should always be
 13 digits (when not 10 digits) and start with 9790.
 
