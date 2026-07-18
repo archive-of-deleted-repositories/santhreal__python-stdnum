@@ -53,3 +53,11 @@ is not really useful as module documentation.
 ['nif']
 >>> check('L1111111C')  # invalid NIF
 []
+
+
+Empty CIF split must raise InvalidLength (not IndexError).
+
+>>> cif.split('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...

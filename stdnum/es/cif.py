@@ -105,4 +105,6 @@ def split(number: str) -> tuple[str, str, str, str]:
     organisation, two digits that specify a province, a 5 digit sequence
     number within the province and a check digit."""
     number = compact(number)
+    if not number:
+        raise InvalidLength()
     return number[0], number[1:3], number[3:8], number[8:]
