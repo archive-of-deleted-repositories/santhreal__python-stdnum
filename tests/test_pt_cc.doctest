@@ -34,3 +34,11 @@ These have been found online and should all be valid numbers.
 ... '''
 >>> [x for x in numbers.splitlines() if x and not cc.is_valid(x)]
 []
+
+
+Empty input must raise InvalidLength from format (not IndexError).
+
+>>> cc.format('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
