@@ -175,3 +175,8 @@ Empty input must raise InvalidLength from format (not IndexError).
 Traceback (most recent call last):
     ...
 InvalidLength: ...
+
+Short non-empty input uses slices (no IndexError).
+
+>>> npwp.format('12345678')
+'12.345.678.-.'

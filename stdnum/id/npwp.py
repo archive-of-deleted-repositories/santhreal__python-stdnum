@@ -100,4 +100,4 @@ def format(number: str) -> str:
     if not number:
         raise InvalidLength()
     return '%s.%s.%s.%s-%s.%s' % (
-        number[:2], number[2:5], number[5:8], number[8], number[9:12], number[12:])
+        number[:2], number[2:5], number[5:8], number[8:9], number[9:12], number[12:])
