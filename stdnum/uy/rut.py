@@ -109,4 +109,6 @@ def is_valid(number: str) -> bool:
 def format(number: str) -> str:
     """Reformat the number to the standard presentation format."""
     number = compact(number)
+    if not number:
+        raise InvalidLength()
     return '-'.join([number[:2], number[2:-4], number[-4:-1], number[-1]])
