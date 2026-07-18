@@ -231,3 +231,11 @@ https://palena.sii.cl/cvc/dte/ee_empresas_emisoras.html
 ... '''
 >>> [x for x in numbers.splitlines() if x and not rut.is_valid(x)]
 []
+
+
+Empty input must raise InvalidLength from format (not IndexError).
+
+>>> rut.format('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
