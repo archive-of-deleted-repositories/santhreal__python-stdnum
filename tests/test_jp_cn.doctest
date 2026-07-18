@@ -88,3 +88,11 @@ https://my-number-kun.herokuapp.com/
 ... '''
 >>> [x for x in numbers.splitlines() if x and not cn.is_valid(x)]
 []
+
+
+Empty input must raise InvalidLength from format (not IndexError).
+
+>>> cn.format('')
+Traceback (most recent call last):
+    ...
+InvalidLength: ...
